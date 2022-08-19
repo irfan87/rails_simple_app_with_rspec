@@ -1,24 +1,18 @@
-# README
+# Learn Unit Test with RSpec and Friends
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Only a dummy blog application, but cover up the intermediate part, which is Unit Test (Rspec)
+2. Devise, Bootstrap, Tailwind, CanCan (or Pundit) are not included for this development
+3. This learning stuff is intend to test the back end and requests.
 
-Things you may want to cover:
+## Spec
+- Ruby (3.1.0)
+- Rbenv (1.2.0)
+- Rails (7.0.3)
+- PostgreSQL (personal reference)
+- WSL
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Gem that I used for testing
+- rspec-rails
+- factory_bot_rails
+- faker
+- shoulda-matchers
