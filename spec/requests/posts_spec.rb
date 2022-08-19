@@ -54,4 +54,49 @@ RSpec.describe 'Posts', type: :request do
       end
     end
   end
+
+  describe '/posts/:id/edit for edit' do
+    let(:post) { create(:post) }
+
+    it 'successfully edit the post with id' do
+      get edit_post_path(post)
+
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe '/posts/:id/edit for update' do
+    let(:post) { create(:post) }
+
+    context 'when it is a valid update' do
+      it 'updates' do
+        old_title = post.title
+        new_title = 'Update title'
+
+        expect do
+          put post_path(post), params: {
+            post: {
+              title: new_title
+            }
+          }
+        end.to change { post.reload.title }.from(old_title).to(new_title)
+
+        expect(response).to have_http_status(:redirect)
+      end
+    end
+
+    context 'when it is a invalid update' do
+      it 'fails to update' do
+        expect do
+          put post_path(post), params: {
+            post: {
+              title: ''
+            }
+          }
+        end.not_to change { post.reload.title }
+
+        expect(response).to have_http_status(:success)
+      end
+    end
+  end
 end
