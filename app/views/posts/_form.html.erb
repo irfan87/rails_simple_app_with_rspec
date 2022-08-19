@@ -1,0 +1,16 @@
+<%= form_with model: @post, local: true do |f| %>
+  <div>
+    <%= f.label :title %>
+    <br>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <br>
+    <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= f.submit %>
+    <%= link_to 'Back to posts', root_path %>
+  </div>
+<% end %>
