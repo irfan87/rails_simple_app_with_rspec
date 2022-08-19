@@ -5,6 +5,9 @@
       <li>
         <h2><%= post.title %></h2>
         <p><%= post.body %></p>
+        <div>
+          <%= link_to 'Show this post', post_path(post) %>
+        </div>
       </li>
     <% end %>
   </ul>
