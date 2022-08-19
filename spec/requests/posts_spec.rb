@@ -36,4 +36,22 @@ RSpec.describe 'Posts', type: :request do
       end
     end
   end
+
+  describe '/posts/:id for show' do
+    let(:post) { create(:post) }
+
+    context 'when passing in valid post id' do
+      it 'successfully shows the post with id' do
+        get post_path(post)
+
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context 'when passing in invalid post id' do
+      it 'fails to show the post with id' do
+        expect { get post_path('teststtss') }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+  end
 end
